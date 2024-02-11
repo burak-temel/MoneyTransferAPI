@@ -1,0 +1,46 @@
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\burak\source\repos\MoneyTransferAPI\MoneyTransferAPI.API
+Failed to determine the https port for redirect.
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\burak\source\repos\MoneyTransferAPI\MoneyTransferAPI.API
+Failed to determine the https port for redirect.
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\burak\source\repos\MoneyTransferAPI\MoneyTransferAPI.API
+Failed to determine the https port for redirect.
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\burak\source\repos\MoneyTransferAPI\MoneyTransferAPI.API
+Failed to determine the https port for redirect.
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\burak\source\repos\MoneyTransferAPI\MoneyTransferAPI.API
+Failed to determine the https port for redirect.
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\burak\source\repos\MoneyTransferAPI\MoneyTransferAPI.API
+Failed to determine the https port for redirect.
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\burak\source\repos\MoneyTransferAPI\MoneyTransferAPI.API
+Failed to determine the https port for redirect.
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\burak\source\repos\MoneyTransferAPI\MoneyTransferAPI.API
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\burak\source\repos\MoneyTransferAPI\MoneyTransferAPI.API
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\burak\source\repos\MoneyTransferAPI\MoneyTransferAPI.API
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\burak\source\repos\MoneyTransferAPI\MoneyTransferAPI.API
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\burak\source\repos\MoneyTransferAPI\MoneyTransferAPI.API
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\burak\source\repos\MoneyTransferAPI\MoneyTransferAPI.API

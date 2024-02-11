@@ -3,7 +3,55 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyTransferAPI.Core", "MoneyTransferAPI.Core\MoneyTransferAPI.Core.csproj", "{A5511FAB-FA57-44A0-9A45-7C5BF39B3592}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyTransferAPI.Business", "MoneyTransferAPI.Business\MoneyTransferAPI.Business.csproj", "{4BE19DA7-5D78-4F63-93C4-AC0D545BE018}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyTransferAPI.DataAccess", "MoneyTransferAPI.DataAccess\MoneyTransferAPI.DataAccess.csproj", "{DF6E510C-FA86-4027-8764-DE7C652D0C7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyTransferAPI.Infrastructure", "MoneyTransferAPI.Infrastructure\MoneyTransferAPI.Infrastructure.csproj", "{139EFD06-BBEC-4E39-8966-39DDE669D71B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyTransferAPI.API", "MoneyTransferAPI.API\MoneyTransferAPI.API.csproj", "{A4E4E3F8-4AD7-445F-BABD-78AB8C88A455}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyTransferAPI.Interface", "MoneyTransferAPI.Interface\MoneyTransferAPI.Interface.csproj", "{62E8D8EA-F2E1-4C25-BD8F-C173F3CABB98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyTransferAPI.Enum", "MoneyTransferAPI.Enum\MoneyTransferAPI.Enum.csproj", "{EB1C55F3-9364-427D-8868-5C85CD3A12BE}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A5511FAB-FA57-44A0-9A45-7C5BF39B3592}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5511FAB-FA57-44A0-9A45-7C5BF39B3592}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5511FAB-FA57-44A0-9A45-7C5BF39B3592}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5511FAB-FA57-44A0-9A45-7C5BF39B3592}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BE19DA7-5D78-4F63-93C4-AC0D545BE018}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BE19DA7-5D78-4F63-93C4-AC0D545BE018}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BE19DA7-5D78-4F63-93C4-AC0D545BE018}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BE19DA7-5D78-4F63-93C4-AC0D545BE018}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF6E510C-FA86-4027-8764-DE7C652D0C7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF6E510C-FA86-4027-8764-DE7C652D0C7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF6E510C-FA86-4027-8764-DE7C652D0C7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF6E510C-FA86-4027-8764-DE7C652D0C7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{139EFD06-BBEC-4E39-8966-39DDE669D71B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{139EFD06-BBEC-4E39-8966-39DDE669D71B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{139EFD06-BBEC-4E39-8966-39DDE669D71B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{139EFD06-BBEC-4E39-8966-39DDE669D71B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4E4E3F8-4AD7-445F-BABD-78AB8C88A455}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4E4E3F8-4AD7-445F-BABD-78AB8C88A455}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4E4E3F8-4AD7-445F-BABD-78AB8C88A455}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4E4E3F8-4AD7-445F-BABD-78AB8C88A455}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62E8D8EA-F2E1-4C25-BD8F-C173F3CABB98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62E8D8EA-F2E1-4C25-BD8F-C173F3CABB98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62E8D8EA-F2E1-4C25-BD8F-C173F3CABB98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62E8D8EA-F2E1-4C25-BD8F-C173F3CABB98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB1C55F3-9364-427D-8868-5C85CD3A12BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB1C55F3-9364-427D-8868-5C85CD3A12BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB1C55F3-9364-427D-8868-5C85CD3A12BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB1C55F3-9364-427D-8868-5C85CD3A12BE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
