@@ -7,5 +7,4 @@ namespace MoneyTransferAPI.Core.Queries.User
     {
         public Guid UserId { get; set; }
     }
-
 }

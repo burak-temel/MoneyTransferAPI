@@ -7,7 +7,7 @@ using System.Text;
 
 namespace MoneyTransferAPI.Infrastructure.Authentication
 {
-    public class JWTAuthenticationManager
+    public partial class JWTAuthenticationManager
     {
         private readonly IConfiguration _configuration;
         private readonly byte[] _key;
@@ -20,10 +20,8 @@ namespace MoneyTransferAPI.Infrastructure.Authentication
             _key = Encoding.ASCII.GetBytes(_jwtSection["Secret"]);
         }
 
-        public string Authenticate(string username, string password)
+        public string Authenticate(string username)
         {
-            // Kullanıcı doğrulaması...
-
             var tokenHandler = new JwtSecurityTokenHandler();
             var tokenDescriptor = new SecurityTokenDescriptor
             {

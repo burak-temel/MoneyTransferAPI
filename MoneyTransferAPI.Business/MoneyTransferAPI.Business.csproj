@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MoneyTransferAPI.Core\MoneyTransferAPI.Core.csproj" />
+    <ProjectReference Include="..\MoneyTransferAPI.Infrastructure\MoneyTransferAPI.Infrastructure.csproj" />
     <ProjectReference Include="..\MoneyTransferAPI.Interface\MoneyTransferAPI.Interface.csproj" />
   </ItemGroup>
 

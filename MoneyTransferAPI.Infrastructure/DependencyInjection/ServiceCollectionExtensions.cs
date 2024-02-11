@@ -5,6 +5,7 @@ using MoneyTransferAPI.Infrastructure.Authentication;
 using MoneyTransferAPI.Infrastructure.Logging;
 using System;
 using Microsoft.OpenApi.Models;
+using MoneyTransferAPI.Infrastructure.AutoMapper;
 
 namespace MoneyTransferAPI.Infrastructure.DependencyInjection
 {
@@ -29,8 +30,10 @@ namespace MoneyTransferAPI.Infrastructure.DependencyInjection
 
             services.AddLoggingServices(configuration);
 
+            services.AddAutoMapperServices(configuration);
+
             return services;
-        }
+        }   
     }
 
 }

@@ -2,6 +2,7 @@
 using MoneyTransferAPI.Core.Entities;
 using MoneyTransferAPI.Interface.Entities;
 using MoneyTransferAPI.Interface.Repositories;
+using System.Linq.Expressions;
 
 namespace MoneyTransferAPI.DataAccess
 {
@@ -41,5 +42,11 @@ namespace MoneyTransferAPI.DataAccess
             _context.Set<ITransaction>().Remove(transaction);
             await _context.SaveChangesAsync();
         }
+
+        public Task<ITransaction> GetAsync(Expression<Func<ITransaction, bool>> expression)
+        {
+            throw new NotImplementedException();
+        }
     }
+
 }

@@ -23,12 +23,12 @@ namespace MoneyTransferAPI.API.Controllers
             return Ok();
         }
 
-        //[HttpPost("login")]
-        //public async Task<IActionResult> Login(UserLoginQuery query)
-        //{
-        //    var result = await _mediator.Send(query);
-        //    return result.Success ? Ok(result) : Unauthorized(result.Message);
-        //}
+        [HttpPost("login")]
+        public async Task<IActionResult> Login(UserLoginQuery query)
+        {
+            var response = await _mediator.Send(query);
+            return response.Result ? Ok(response) : Unauthorized(response.Message);
+        }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetUser(Guid id)
@@ -37,8 +37,6 @@ namespace MoneyTransferAPI.API.Controllers
             var result = await _mediator.Send(query);
             return result != null ? Ok(result) : NotFound();
         }
-
-        // Diðer gerekli endpointler buraya eklenecek...
     }
 
 }

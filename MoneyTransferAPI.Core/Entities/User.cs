@@ -17,5 +17,11 @@ namespace MoneyTransferAPI.Core.Entities
         public byte[] PasswordSalt { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
+        public string Email { get ; set ; }
+        public bool Status { get; set; }
+
+        //Doldurulmayacak alanlar
+        public ICollection<Transaction> SentTransactions { get; set; }
+        public ICollection<Transaction> ReceivedTransactions { get; set; }
     }
 }
