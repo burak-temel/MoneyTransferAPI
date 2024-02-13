@@ -7,7 +7,6 @@ namespace MoneyTransferAPI.Core.Queries.User
     {
         public UserDto User { get; set; }
         public decimal TransactionAmount { get; set; }
-        public string UserCurrency { get; set; }
         public string TransactionCurrency { get; set; }
     }
 }

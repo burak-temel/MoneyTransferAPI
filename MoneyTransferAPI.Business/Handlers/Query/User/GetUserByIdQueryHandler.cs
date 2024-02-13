@@ -21,7 +21,7 @@ namespace MoneyTransferAPI.Business.Handlers.Query.User
         {
             var user = await _userRepository.GetByIdAsync(query.UserId);
 
-            if (!user.Status)
+            if (!user?.Status ?? true)
             { 
                 return null;
             }

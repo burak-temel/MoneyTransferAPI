@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoneyTransferAPI.Enum", "Mo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyTransferAPI.RepositoryInterface", "MoneyTransferAPI.RepositoryInterface\MoneyTransferAPI.RepositoryInterface.csproj", "{29177F0D-E391-4E0B-A044-A31F3621DA7A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyTransferAPI.Test", "MoneyTransferAPI.Test\MoneyTransferAPI.Test.csproj", "{C3BF8050-D216-4ECC-BE19-7778B45250C6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{29177F0D-E391-4E0B-A044-A31F3621DA7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29177F0D-E391-4E0B-A044-A31F3621DA7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29177F0D-E391-4E0B-A044-A31F3621DA7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3BF8050-D216-4ECC-BE19-7778B45250C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3BF8050-D216-4ECC-BE19-7778B45250C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3BF8050-D216-4ECC-BE19-7778B45250C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3BF8050-D216-4ECC-BE19-7778B45250C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

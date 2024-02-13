@@ -38,7 +38,6 @@ namespace MoneyTransferAPI.Business.Handlers.Command.Transaction
             {
                 User = sender,
                 TransactionAmount = command.Amount,
-                UserCurrency = sender.Currency,
                 TransactionCurrency = command.Currency
             });
 

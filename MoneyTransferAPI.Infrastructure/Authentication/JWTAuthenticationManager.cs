@@ -20,7 +20,7 @@ namespace MoneyTransferAPI.Infrastructure.Authentication
             _key = Encoding.ASCII.GetBytes(_jwtSection["Secret"]);
         }
 
-        public string Authenticate(string username)
+        public virtual string Authenticate(string username)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var tokenDescriptor = new SecurityTokenDescriptor
