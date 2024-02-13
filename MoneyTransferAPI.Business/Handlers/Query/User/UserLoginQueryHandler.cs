@@ -36,6 +36,7 @@ namespace MoneyTransferAPI.Business.Handlers.Query.User
 
             response = Response<LoginResponse>.Success(new LoginResponse
             {
+                UserId = user.Id,
                 Token = token
             });
 

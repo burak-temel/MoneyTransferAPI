@@ -5,5 +5,6 @@ namespace MoneyTransferAPI.RepositoryInterface
 {
     public interface ITransactionRepository : IRepository<Transaction>
     {
+        Task<IEnumerable<Transaction>> GetTransactionsByUserIdAsync(Guid userId);
     }
 }

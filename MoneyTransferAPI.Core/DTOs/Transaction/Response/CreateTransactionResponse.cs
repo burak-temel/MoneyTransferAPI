@@ -1,4 +1,4 @@
-﻿namespace MoneyTransferAPI.Core.DTOs.Transaction
+﻿namespace MoneyTransferAPI.Core.DTOs.Transaction.Response
 {
 
     public class CreateTransactionResponse

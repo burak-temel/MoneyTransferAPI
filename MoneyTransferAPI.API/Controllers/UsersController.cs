@@ -2,6 +2,7 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MoneyTransferAPI.Core.Commands.User;
+using MoneyTransferAPI.Core.Queries.Transaction;
 using MoneyTransferAPI.Core.Queries.User;
 
 namespace MoneyTransferAPI.API.Controllers
@@ -41,6 +42,22 @@ namespace MoneyTransferAPI.API.Controllers
             var result = await _mediator.Send(query);
             return result != null ? Ok(result) : NotFound();
         }
-    }
 
+        //Get user balance
+        [HttpGet("{id}/balance")]
+        public async Task<IActionResult> GetUserBalance(Guid id)
+        {
+            var query = new GetUserBalanceQuery { UserId = id };
+            var result = await _mediator.Send(query);
+            return result != null ? Ok(result) : NotFound();
+        }
+
+        [HttpGet("{id}/transactions")]
+        public async Task<IActionResult> GetUserTransactions(Guid id)
+        {
+            var query = new GetUserTransactionsQuery { UserId = id };
+            var result = await _mediator.Send(query);
+            return result != null ? Ok(result) : NotFound();
+        }
+    }
 }

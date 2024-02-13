@@ -47,6 +47,13 @@ namespace MoneyTransferAPI.DataAccess
         {
             throw new NotImplementedException();
         }
+
+        public async Task<IEnumerable<Transaction>> GetTransactionsByUserIdAsync(Guid userId)
+        {
+            return await _context.Transactions
+                                   .Where(t => t.SenderId == userId || t.ReceiverId == userId)
+                                   .ToListAsync(); 
+        }
     }
 
 }

@@ -11,5 +11,4 @@ namespace MoneyTransferAPI.Core.Queries.Transaction
     public class GetAllTransactionsQuery : IRequest<IEnumerable<TransactionDto>>
     {
     }
-
 }

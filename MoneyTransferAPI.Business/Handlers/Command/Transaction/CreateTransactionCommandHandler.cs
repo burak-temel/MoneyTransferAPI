@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using MoneyTransferAPI.Core.Commands.Transaction;
-using MoneyTransferAPI.Core.DTOs.Transaction;
+using MoneyTransferAPI.Core.DTOs.Transaction.Response;
 using MoneyTransferAPI.Core.Generals;
 using MoneyTransferAPI.Core.Queries.User;
 using MoneyTransferAPI.Enums;
@@ -71,6 +71,7 @@ namespace MoneyTransferAPI.Business.Handlers.Command.Transaction
                 ReceiverId = command.ReceiverId,
                 Amount = command.Amount,
                 Currency = command.Currency,
+                TransactionDate = DateTime.UtcNow
             };
 
             await _transactionRepository.AddAsync(transaction);

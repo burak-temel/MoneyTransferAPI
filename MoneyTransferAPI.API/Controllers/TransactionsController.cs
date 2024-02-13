@@ -40,13 +40,13 @@ namespace MoneyTransferAPI.API.Controllers
             return Ok(result);
         }
 
-        //[HttpGet("{id}")]
-        //public async Task<IActionResult> GetTransactionById(Guid id)
-        //{
-        //    var query = new GetTransactionByIdQuery { TransactionId = id };
-        //    var result = await _mediator.Send(query);
-        //    return result != null ? Ok(result) : NotFound();
-        //}
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetTransactionById(Guid id)
+        {
+            var query = new GetTransactionByIdQuery { TransactionId = id };
+            var result = await _mediator.Send(query);
+            return result != null ? Ok(result) : NotFound();
+        }
 
     }
 }

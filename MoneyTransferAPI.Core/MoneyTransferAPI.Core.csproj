@@ -14,8 +14,4 @@
     <ProjectReference Include="..\MoneyTransferAPI.Interface\MoneyTransferAPI.Interface.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="DTOs\Transaction\Response\" />
-  </ItemGroup>
-
 </Project>

@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using MoneyTransferAPI.Core.DTOs.Transaction;
+using MoneyTransferAPI.Core.DTOs.Transaction.Response;
 using MoneyTransferAPI.Core.Generals;
 
 namespace MoneyTransferAPI.Core.Commands.Transaction
