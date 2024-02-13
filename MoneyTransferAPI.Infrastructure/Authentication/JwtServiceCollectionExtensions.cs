@@ -14,6 +14,8 @@ namespace MoneyTransferAPI.Infrastructure.Authentication
             var jwtSettings = configuration.GetSection("JWT");
             var key = Encoding.ASCII.GetBytes(jwtSettings["Secret"]);
 
+            services.AddSingleton<JWTAuthenticationManager>();
+
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

@@ -4,7 +4,7 @@ using MoneyTransferAPI.Core.DTOs.User.Response;
 using MoneyTransferAPI.Core.Generals;
 using MoneyTransferAPI.Core.Queries.User;
 using MoneyTransferAPI.Infrastructure.Authentication;
-using MoneyTransferAPI.Interface.Repositories;
+using MoneyTransferAPI.RepositoryInterface;
 using static MoneyTransferAPI.Infrastructure.Authentication.JWTAuthenticationManager;
 
 namespace MoneyTransferAPI.Business.Handlers.Query.User
@@ -28,7 +28,7 @@ namespace MoneyTransferAPI.Business.Handlers.Query.User
             Response<LoginResponse> response = new();
             var user = await _userRepository.GetAsync(u => u.Email == query.Email && u.Status);
 
-            if (user == null || !HashingHelper.VerifyPasswordHash(query.Password, user.PasswordSalt, user.PasswordHash))
+            if (user == null || !HashingHelper.VerifyPasswordHash(query.Password, user.PasswordHash, user.PasswordSalt))
             {
                 return response = Response<LoginResponse>.Fail("User not found or passsword incorrect");
             }

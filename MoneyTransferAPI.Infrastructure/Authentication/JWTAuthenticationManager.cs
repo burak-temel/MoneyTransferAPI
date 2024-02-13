@@ -7,7 +7,7 @@ using System.Text;
 
 namespace MoneyTransferAPI.Infrastructure.Authentication
 {
-    public partial class JWTAuthenticationManager
+    public class JWTAuthenticationManager
     {
         private readonly IConfiguration _configuration;
         private readonly byte[] _key;

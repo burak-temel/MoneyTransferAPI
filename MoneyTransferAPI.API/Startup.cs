@@ -2,6 +2,7 @@
 using Microsoft.OpenApi.Models;
 using MoneyTransferAPI.DataAccess;
 using MoneyTransferAPI.Infrastructure.DependencyInjection;
+using MoneyTransferAPI.RepositoryInterface;
 
 namespace MoneyTransferAPI.API
 {
@@ -23,6 +24,9 @@ namespace MoneyTransferAPI.API
             services.AddDbContext<AppDbContext>(options =>
                       options.UseNpgsql
                       (Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<ITransactionRepository, TransactionRepository>();
 
             services.AddApplicationServices();
             services.AddInfrastructureServices(Configuration);

@@ -2,7 +2,7 @@
 using MediatR;
 using MoneyTransferAPI.Core.DTOs.User;
 using MoneyTransferAPI.Core.Queries.User;
-using MoneyTransferAPI.Interface.Repositories;
+using MoneyTransferAPI.RepositoryInterface;
 
 namespace MoneyTransferAPI.Business.Handlers.Query.User
 {

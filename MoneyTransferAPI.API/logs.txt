@@ -47,3 +47,123 @@ Content root path: C:\Users\burak\source\repos\MoneyTransferAPI\MoneyTransferAPI
 Application started. Press Ctrl+C to shut down.
 Hosting environment: Development
 Content root path: C:\Users\burak\source\repos\MoneyTransferAPI\MoneyTransferAPI.API
+Executed DbCommand (102ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+Executed DbCommand (88ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+Executed DbCommand (87ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+Executed DbCommand (87ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+Applying migration '20240211201108_InitialCreate'.
+Executed DbCommand (96ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE "Users" (
+    "Id" uuid NOT NULL,
+    "FirstName" text NOT NULL,
+    "LastName" text NOT NULL,
+    "Balance" numeric NOT NULL,
+    "PasswordHash" bytea NOT NULL,
+    "PasswordSalt" bytea NOT NULL,
+    "DateCreated" timestamp with time zone NOT NULL,
+    "DateModified" timestamp with time zone NULL,
+    "Email" text NOT NULL,
+    "Status" boolean NOT NULL,
+    CONSTRAINT "PK_Users" PRIMARY KEY ("Id")
+);
+Executed DbCommand (97ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE "Transactions" (
+    "Id" uuid NOT NULL,
+    "SenderId" uuid NOT NULL,
+    "ReceiverId" uuid NOT NULL,
+    "Amount" numeric NOT NULL,
+    "Currency" text NOT NULL,
+    "TransactionDate" timestamp with time zone NOT NULL,
+    "Status" integer NOT NULL,
+    CONSTRAINT "PK_Transactions" PRIMARY KEY ("Id"),
+    CONSTRAINT "FK_Transactions_Users_ReceiverId" FOREIGN KEY ("ReceiverId") REFERENCES "Users" ("Id") ON DELETE RESTRICT,
+    CONSTRAINT "FK_Transactions_Users_SenderId" FOREIGN KEY ("SenderId") REFERENCES "Users" ("Id") ON DELETE RESTRICT
+);
+Executed DbCommand (108ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_Transactions_ReceiverId" ON "Transactions" ("ReceiverId");
+Executed DbCommand (94ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_Transactions_SenderId" ON "Transactions" ("SenderId");
+Executed DbCommand (93ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20240211201108_InitialCreate', '7.0.15');
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\burak\source\repos\MoneyTransferAPI\MoneyTransferAPI.API
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\burak\source\repos\MoneyTransferAPI\MoneyTransferAPI.API
+An unhandled exception has occurred while executing the request.
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\burak\source\repos\MoneyTransferAPI\MoneyTransferAPI.API
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\burak\source\repos\MoneyTransferAPI\MoneyTransferAPI.API
+An unhandled exception has occurred while executing the request.
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\burak\source\repos\MoneyTransferAPI\MoneyTransferAPI.API
+Executed DbCommand (81ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Decimal), @p2='?' (DbType = DateTime), @p3='?' (DbType = DateTime), @p4='?', @p5='?', @p6='?', @p7='?' (DbType = Binary), @p8='?' (DbType = Binary), @p9='?' (DbType = Boolean)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Users" ("Id", "Balance", "DateCreated", "DateModified", "Email", "FirstName", "LastName", "PasswordHash", "PasswordSalt", "Status")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+An unhandled exception has occurred while executing the request.
+Executed DbCommand (423ms) [Parameters=[@__query_Email_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."Balance", u."DateCreated", u."DateModified", u."Email", u."FirstName", u."LastName", u."PasswordHash", u."PasswordSalt", u."Status"
+FROM "Users" AS u
+WHERE u."Email" = @__query_Email_0 AND u."Status"
+LIMIT 1
+Executed DbCommand (48ms) [Parameters=[@__query_Email_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."Balance", u."DateCreated", u."DateModified", u."Email", u."FirstName", u."LastName", u."PasswordHash", u."PasswordSalt", u."Status"
+FROM "Users" AS u
+WHERE u."Email" = @__query_Email_0 AND u."Status"
+LIMIT 1
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\burak\source\repos\MoneyTransferAPI\MoneyTransferAPI.API
+Executed DbCommand (77ms) [Parameters=[@__query_Email_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."Balance", u."DateCreated", u."DateModified", u."Email", u."FirstName", u."LastName", u."PasswordHash", u."PasswordSalt", u."Status"
+FROM "Users" AS u
+WHERE u."Email" = @__query_Email_0 AND u."Status"
+LIMIT 1
+Executed DbCommand (65ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Decimal), @p2='?' (DbType = DateTime), @p3='?' (DbType = DateTime), @p4='?', @p5='?', @p6='?', @p7='?' (DbType = Binary), @p8='?' (DbType = Binary), @p9='?' (DbType = Boolean)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Users" ("Id", "Balance", "DateCreated", "DateModified", "Email", "FirstName", "LastName", "PasswordHash", "PasswordSalt", "Status")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+An unhandled exception has occurred while executing the request.
+Executed DbCommand (52ms) [Parameters=[@__query_Email_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."Balance", u."DateCreated", u."DateModified", u."Email", u."FirstName", u."LastName", u."PasswordHash", u."PasswordSalt", u."Status"
+FROM "Users" AS u
+WHERE u."Email" = @__query_Email_0 AND u."Status"
+LIMIT 1
+Executed DbCommand (52ms) [Parameters=[@__query_Email_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."Balance", u."DateCreated", u."DateModified", u."Email", u."FirstName", u."LastName", u."PasswordHash", u."PasswordSalt", u."Status"
+FROM "Users" AS u
+WHERE u."Email" = @__query_Email_0 AND u."Status"
+LIMIT 1
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\burak\source\repos\MoneyTransferAPI\MoneyTransferAPI.API
+Executed DbCommand (70ms) [Parameters=[@__query_Email_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT u."Id", u."Balance", u."DateCreated", u."DateModified", u."Email", u."FirstName", u."LastName", u."PasswordHash", u."PasswordSalt", u."Status"
+FROM "Users" AS u
+WHERE u."Email" = @__query_Email_0 AND u."Status"
+LIMIT 1

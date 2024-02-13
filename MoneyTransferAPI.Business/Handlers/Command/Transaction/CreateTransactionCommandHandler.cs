@@ -2,7 +2,7 @@
 using MediatR;
 using MoneyTransferAPI.Core.Commands.Transaction;
 using MoneyTransferAPI.Core.DTOs.Transaction;
-using MoneyTransferAPI.Interface.Repositories;
+using MoneyTransferAPI.RepositoryInterface;
 
 namespace MoneyTransferAPI.Business.Handlers.Command.Transaction
 {

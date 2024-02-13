@@ -3,7 +3,7 @@ using AutoMapper;
 using MediatR;
 using MoneyTransferAPI.Core.DTOs.Transaction;
 using MoneyTransferAPI.Core.Queries.Transaction;
-using MoneyTransferAPI.Interface.Repositories;
+using MoneyTransferAPI.RepositoryInterface;
 
 namespace MoneyTransferAPI.Business.Handlers.Query.Transaction
 {

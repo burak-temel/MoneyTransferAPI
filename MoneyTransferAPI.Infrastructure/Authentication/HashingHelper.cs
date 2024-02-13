@@ -3,34 +3,32 @@ using System.Text;
 
 namespace MoneyTransferAPI.Infrastructure.Authentication
 {
-    public partial class JWTAuthenticationManager
+    public static class HashingHelper
     {
-        public static class HashingHelper
+        public static void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
-            public static void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
-            {
-                using var hmac = new HMACSHA512();
-                passwordSalt = hmac.Key;
-                passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
-            }
+            using var hmac = new HMACSHA512();
+            passwordSalt = hmac.Key;
+            passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
+        }
 
-            public static bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
+        public static bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
+        {
+            using (var hmac = new HMACSHA512(passwordSalt))
             {
-                using (var hmac = new HMACSHA512(passwordSalt))
+                var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
+                for (var i = 0; i < computedHash.Length; i++)
                 {
-                    var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
-                    for (var i = 0; i < computedHash.Length; i++)
+                    if (computedHash[i] != passwordHash[i])
                     {
-                        if (computedHash[i] != passwordHash[i])
-                        {
-                            return false;
-                        }
+                        return false;
                     }
                 }
-
-                return true;
             }
+
+            return true;
         }
     }
 }
+
 
