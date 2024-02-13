@@ -8,6 +8,8 @@ using Microsoft.OpenApi.Models;
 using MoneyTransferAPI.Infrastructure.AutoMapper;
 using MediatR;
 using MoneyTransferAPI.Infrastructure.Interceptor;
+using Microsoft.AspNetCore.Authorization;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace MoneyTransferAPI.Infrastructure.DependencyInjection
 {
@@ -18,13 +20,15 @@ namespace MoneyTransferAPI.Infrastructure.DependencyInjection
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Money Transfer API", Version = "v1" });
+
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
-                    Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
                     Name = "Authorization",
-                    In = ParameterLocation.Header,
                     Type = SecuritySchemeType.ApiKey,
-                    Scheme = "Bearer"
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT",
+                    In = ParameterLocation.Header,
+                    Description = "JWT Authorization header using the Bearer scheme."
                 });
 
                 c.AddSecurityRequirement(new OpenApiSecurityRequirement
@@ -36,14 +40,12 @@ namespace MoneyTransferAPI.Infrastructure.DependencyInjection
                             {
                                 Type = ReferenceType.SecurityScheme,
                                 Id = "Bearer"
-                            },
-                            Scheme = "oauth2",
-                            Name = "Bearer",
-                            In = ParameterLocation.Header
+                            }
                         },
-                        new List<string>()
+                        new string[] {}
                     }
                 });
+                c.OperationFilter<AllowAnonymousOperationFilter>();//TODO
             });
 
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()));
@@ -63,7 +65,25 @@ namespace MoneyTransferAPI.Infrastructure.DependencyInjection
             services.AddAutoMapperServices(configuration);
 
             return services;
-        }   
-    }
+        }
 
+        #region Private Methods
+        private class AllowAnonymousOperationFilter : IOperationFilter
+        {
+            public void Apply(OpenApiOperation operation, OperationFilterContext context)
+            {
+                var hasAllowAnonymous = context.MethodInfo
+                    .GetCustomAttributes(true)
+                    .OfType<AllowAnonymousAttribute>()
+                    .Any();
+
+                if (hasAllowAnonymous)
+                {
+                    operation.Security = new List<OpenApiSecurityRequirement>();
+                }
+            }
+        }
+
+        #endregion
+    }
 }

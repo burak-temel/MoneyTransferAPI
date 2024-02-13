@@ -591,3 +591,18 @@ SELECT u."Id", u."Balance", u."Currency", u."DateCreated", u."DateModified", u."
 FROM "Users" AS u
 WHERE u."Id" = @__get_Item_0
 LIMIT 1
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\burak\source\repos\MoneyTransferAPI\MoneyTransferAPI.API
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\burak\source\repos\MoneyTransferAPI\MoneyTransferAPI.API
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\burak\source\repos\MoneyTransferAPI\MoneyTransferAPI.API
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\burak\source\repos\MoneyTransferAPI\MoneyTransferAPI.API
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\burak\source\repos\MoneyTransferAPI\MoneyTransferAPI.API
