@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MoneyTransferAPI.Core.Entities;
 
+
 namespace MoneyTransferAPI.DataAccess
 {
     public class AppDbContext : DbContext
@@ -9,11 +10,17 @@ namespace MoneyTransferAPI.DataAccess
         {
         }
 
+
         public DbSet<User> Users { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder
+                .Entity<Transaction>()
+                .Property(e => e.Status)
+                .HasConversion<int>(); // Enum'u integer olarak kaydet
+
             modelBuilder.Entity<Transaction>()
                 .HasOne(t => t.Sender)
                 .WithMany(u => u.SentTransactions)

@@ -1,52 +1,53 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MoneyTransferAPI.Core.Entities;
 using MoneyTransferAPI.Interface.DataAccess;
 using MoneyTransferAPI.Interface.Entities;
-using MoneyTransferAPI.Interface.Repositories;
+using MoneyTransferAPI.RepositoryInterface;
 using System.Linq.Expressions;
 
 namespace MoneyTransferAPI.DataAccess
 {
     public class UserRepository : IUserRepository
     {
-        private readonly DbContext _context;
+        private readonly AppDbContext _context;
 
-        public UserRepository(DbContext context)
+        public UserRepository(AppDbContext context)
         {
             _context = context;
         }
 
-        public async Task<IUser> GetByIdAsync(Guid id)
+        public async Task<User> GetByIdAsync(Guid id)
         {
-            return await _context.Set<IUser>().FindAsync(id);
+            return await _context.Users.FindAsync(id);
         }
 
 
-        public async Task<IEnumerable<IUser>> GetAllAsync()
+        public async Task<IEnumerable<User>> GetAllAsync()
         {
-            return await _context.Set<IUser>().ToListAsync();
+            return await _context.Users.ToListAsync();
         }
 
-        public async Task AddAsync(IUser user)
+        public async Task AddAsync(User user)
         {
-            await _context.Set<IUser>().AddAsync(user);
+            await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
         }
 
-        public async Task UpdateAsync(IUser user)
+        public async Task UpdateAsync(User user)
         {
-            _context.Set<IUser>().Update(user);
+            _context.Users.Update(user);
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteAsync(IUser user)
+        public async Task DeleteAsync(User user)
         {
-            _context.Set<IUser>().Remove(user);
+            _context.Users.Remove(user);
             await _context.SaveChangesAsync();
         }
 
-        public async Task<IUser> GetAsync(Expression<Func<IUser, bool>> expression)
+        public async Task<User> GetAsync(Expression<Func<User, bool>> expression)
         {
-            return await _context.Set<IUser>().AsQueryable().FirstOrDefaultAsync(expression);
+            return await _context.Users.AsQueryable().FirstOrDefaultAsync(expression);
         }
     }
 
