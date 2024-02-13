@@ -22,10 +22,8 @@ namespace MoneyTransferAPI.Business.Handlers.Command.User
 
         public async Task<UserDto> Handle(CreateUserCommand command, CancellationToken cancellationToken)
         {
-            // Create password hash and salt
             HashingHelper.CreatePasswordHash(command.Password, out byte[] passwordHash, out byte[] passwordSalt);
 
-            // Create new user with hashed password
             var user = new Core.Entities.User
             {
                 FirstName = command.FirstName,
@@ -35,15 +33,13 @@ namespace MoneyTransferAPI.Business.Handlers.Command.User
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt,
                 DateCreated = DateTime.UtcNow,
-                Status = true
+                Status = true,
+                Currency = command.Currency
             };
 
-            // Save the new user
             await _userRepository.AddAsync(user);
 
-            // Return the DTO mapping
             return _mapper.Map<UserDto>(user);
         }
     }
-
 }

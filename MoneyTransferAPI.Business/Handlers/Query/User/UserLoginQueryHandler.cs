@@ -24,7 +24,6 @@ namespace MoneyTransferAPI.Business.Handlers.Query.User
 
         public async Task<Response<LoginResponse>> Handle(UserLoginQuery query, CancellationToken cancellationToken)
         {
-            //TODO
             Response<LoginResponse> response = new();
             var user = await _userRepository.GetAsync(u => u.Email == query.Email && u.Status);
 

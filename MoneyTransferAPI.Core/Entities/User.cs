@@ -19,6 +19,7 @@ namespace MoneyTransferAPI.Core.Entities
         public DateTime? DateModified { get; set; }
         public string Email { get ; set ; }
         public bool Status { get; set; }
+        public string Currency { get; set; }
 
         //Doldurulmayacak alanlar
         public ICollection<Transaction> SentTransactions { get; set; }

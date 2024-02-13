@@ -1,10 +1,12 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MoneyTransferAPI.Core.Commands.Transaction;
 using MoneyTransferAPI.Core.Queries.Transaction;
 
 namespace MoneyTransferAPI.API.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class TransactionsController : ControllerBase
@@ -20,7 +22,14 @@ namespace MoneyTransferAPI.API.Controllers
         public async Task<IActionResult> CreateTransfer(CreateTransactionCommand command)
         {
             var result = await _mediator.Send(command);
-            return result.Success ? Ok(result) : BadRequest(result.Message);
+            if (result.StatusCode >= 200 && result.StatusCode <= 299)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return BadRequest(result.Message);
+            }
         }
 
         [HttpGet]

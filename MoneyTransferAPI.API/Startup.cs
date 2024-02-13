@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
 using MoneyTransferAPI.DataAccess;
 using MoneyTransferAPI.Infrastructure.DependencyInjection;
 using MoneyTransferAPI.RepositoryInterface;
@@ -19,7 +18,6 @@ namespace MoneyTransferAPI.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-
 
             services.AddDbContext<AppDbContext>(options =>
                       options.UseNpgsql
@@ -45,7 +43,6 @@ namespace MoneyTransferAPI.API
                 app.UseSwaggerUI(c =>
                 {
                     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Money Transfer API V1");
-                    c.RoutePrefix = string.Empty;
                 });
             }
 

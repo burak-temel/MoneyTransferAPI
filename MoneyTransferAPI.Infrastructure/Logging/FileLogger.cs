@@ -20,7 +20,7 @@ namespace MoneyTransferAPI.Infrastructure.Logging
 
         public bool IsEnabled(LogLevel logLevel)
         {
-            // Burada log seviyesine göre filtreleme yapılabilir
+            // You can filter specific log levels here if needed
             return true;
         }
 
@@ -32,6 +32,12 @@ namespace MoneyTransferAPI.Infrastructure.Logging
             }
 
             var message = formatter(state, exception);
+
+            if (logLevel == LogLevel.Error)
+            {
+                message = "[ERROR] " + message;
+            }
+
             WriteTextToFile(message);
         }
 
@@ -43,6 +49,4 @@ namespace MoneyTransferAPI.Infrastructure.Logging
             }
         }
     }
-
-
 }

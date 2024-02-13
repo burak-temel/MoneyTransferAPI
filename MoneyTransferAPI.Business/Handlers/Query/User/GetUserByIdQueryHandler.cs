@@ -20,6 +20,11 @@ namespace MoneyTransferAPI.Business.Handlers.Query.User
         public async Task<UserDto> Handle(GetUserByIdQuery query, CancellationToken cancellationToken)
         {
             var user = await _userRepository.GetByIdAsync(query.UserId);
+
+            if (!user.Status)
+            { 
+                return null;
+            }
             return _mapper.Map<UserDto>(user);
         }
     }

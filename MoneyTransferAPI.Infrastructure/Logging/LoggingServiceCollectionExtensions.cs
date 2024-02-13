@@ -9,8 +9,13 @@ namespace MoneyTransferAPI.Infrastructure.Logging
     {
         public static IServiceCollection AddLoggingServices(this IServiceCollection services, IConfiguration configuration)
         {
-            string logFilePath = configuration["FileLogging:Path"] ?? "logs.txt";
-            services.AddSingleton<ILoggerProvider>(provider => new FileLoggerProvider(logFilePath));
+
+            services.AddLogging(builder =>
+            {
+                builder.ClearProviders(); // Clear existing providers
+                string logFilePath = configuration["FileLogging:Path"] ?? "logs.txt";
+                builder.AddProvider(new FileLoggerProvider(logFilePath));
+            });
 
             return services;
         }

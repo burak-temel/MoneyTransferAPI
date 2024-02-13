@@ -1,10 +1,12 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MoneyTransferAPI.Core.Commands.User;
 using MoneyTransferAPI.Core.Queries.User;
 
 namespace MoneyTransferAPI.API.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class UsersController : ControllerBase
@@ -16,6 +18,7 @@ namespace MoneyTransferAPI.API.Controllers
             _mediator = mediator;
         }
 
+        [AllowAnonymous]
         [HttpPost("register")]
         public async Task<IActionResult> Register(CreateUserCommand command)
         {
@@ -23,6 +26,7 @@ namespace MoneyTransferAPI.API.Controllers
             return Ok();
         }
 
+        [AllowAnonymous]
         [HttpPost("login")]
         public async Task<IActionResult> Login(UserLoginQuery query)
         {

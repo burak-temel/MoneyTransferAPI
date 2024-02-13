@@ -14,5 +14,6 @@ namespace MoneyTransferAPI.Interface.Entities
         DateTime DateCreated { get; set; }
         DateTime? DateModified { get; set; }
         bool Status { get; set; }
+        string Currency { get; set; }
     }
 }
